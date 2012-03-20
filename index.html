@@ -1,0 +1,344 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="css.css" type="text/css" media="screen"> 
+	<title>Anuvada : a multi tasking babel fish</title>
+    <script src="http://www.google.com/jsapi?key=AIzaSyA5m1Nc8ws2BbmPRwKu5gFradvD_hgq6G0" type="text/javascript"></script>
+    <script type="text/javascript">
+ 
+    google.load("language", "1");
+    
+      var langs ='';
+      
+    function translateComplete(results) {
+      var translationDiv = document.getElementById('translation');
+      translationDiv.innerHTML = "";
+      if (!results.error) {
+        for (var i = 0; i < results.responseData.length; i++) {
+          var result = results.responseData[i];
+          translationDiv.innerHTML += result.responseData.translatedText + '<br/>';
+        }
+      }
+      var languageDiv = document.getElementById('langss');
+      languageDiv.innerHTML = "";
+      languageDiv.innerHTML = langs;
+      langs = '';
+    }
+    
+      function convertCodeToLang(langC){
+        var lC;
+        switch (langC)
+        {
+          case 'af':
+            lC = 'African';
+            break;
+            
+          case 'sq':
+            lC = 'Albanian';
+            break;
+          
+            case 'ar':
+            lC = 'Arabic';
+            break;
+          
+            case 'be':
+            lC = 'Belarusian';
+            break;
+
+            case 'bg':
+            lC = 'Bulgarian';
+            break;
+
+            case 'ca':
+            lC = 'Catalan';
+            break;
+
+            case 'zh':
+            lC = 'Chinese';
+            break;
+
+            case 'zh-CN':
+            lC = 'Chinese - Simplified';
+            break;
+
+            case 'zh-TW':
+            lC = 'Chinese - Traditional';
+            break;
+
+            case 'hr':
+            lC = 'Croatian';
+            break;
+
+            case 'cs':
+            lC = 'Czech';
+            break;
+
+            case 'da':
+            lC = 'Danish';
+            break;
+
+            case 'nl':
+            lC = 'Dutch';
+            break;
+
+            case 'en':
+            lC = 'English';
+            break;
+
+            case 'et':
+            lC = 'Estonian';
+            break;
+
+            case 'tl':
+            lC = 'Filipino';
+            break;
+
+            case 'fi':
+            lC = 'Finnish';
+            break;
+
+            case 'fr':
+            lC = 'French';
+            break;
+
+            case 'gl':
+            lC = 'Galician';
+            break;
+
+            case 'de':
+            lC = 'German';
+            break;
+
+            case 'el':
+            lC = 'Greek';
+            break;
+          
+            case 'ht':
+            lC = 'Haitian - Creole';
+            break;
+
+            case 'iw':
+            lC = 'Hebrew';
+            break;
+
+            case 'hi':
+            lC = 'Hindi';
+            break;
+
+            case 'hu':
+            lC = 'Hungarian';
+            break;
+
+            case 'is':
+            lC = 'Icelandic';
+            break;
+
+            case 'id':
+            lC = 'Indonesian';
+            break;
+
+            case 'ga':
+            lC = 'Irish';
+            break;
+
+            case 'it':
+            lC = 'Italian';
+            break;
+
+            case 'ja':
+            lC = 'Japanese';
+            break;
+
+            case 'ko':
+            lC = 'Korean';
+            break;
+
+            case 'lv':
+            lC = 'Latvian';
+            break;
+
+            case 'lt':
+            lC = 'Lithuanian';
+            break;
+
+            case 'mk':
+            lC = 'Macedonian';
+            break;
+
+            case 'ms':
+            lC = 'Malay';
+            break;
+
+            case 'mt':
+            lC = 'Maltese';
+            break;
+
+            case 'no':
+            lC = 'Norwegian';
+            break;
+
+            case 'fa':
+            lC = 'Persian';
+            break;            
+            
+            case 'pl':
+            lC = 'Polish';
+            break;
+
+            case 'pt':
+            lC = 'Portuguese';
+            break;            
+            
+            case 'pt-PT':
+            lC = 'Portuguese - Portugal';
+            break;
+
+            case 'ro':
+            lC = 'Romanian';
+            break;            
+            
+            case 'ru':
+            lC = 'Russian';
+            break;
+
+            case 'sr':
+            lC = 'Serbian';
+            break;            
+            
+            case 'sk':
+            lC = 'Slovak';
+            break;
+
+            case 'sl':
+            lC = 'Slovenian';
+            break;            
+            
+            case 'es':
+            lC = 'Spanish';
+            break;
+
+            case 'sw':
+            lC = 'Swahili';
+            break;            
+            
+            case 'sv':
+            lC = 'Swedish';
+            break;
+
+            case 'tl':
+            lC = 'Tagalog';
+            break;            
+            
+            case 'th':
+            lC = 'Thai';
+            break;
+
+            case 'tr':
+            lC = 'Turkish';
+            break;            
+            
+            case 'uk':
+            lC = 'Ukranian';
+            break;
+
+            case 'vi':
+            lC = 'Vietnamese';
+            break;            
+
+            case 'cy':
+            lC = 'Welsh';
+            break;            
+
+            case 'yi':
+            lC = 'Yiddish';
+            break;            
+
+          default:
+            lC = 'Aliens!';
+        
+            }
+        return lC;
+        
+        }
+      
+      
+    function anuvada() {
+      var text = document.getElementById('inputText').value;
+      var callbackFunction = 'translateComplete';
+    
+      var newScript = document.createElement('script');
+      newScript.type = 'text/javascript';
+      var source = 'http://ajax.googleapis.com/ajax/services/language/translate' +
+                   '?v=1.0&q=' + text;
+      
+      for (var i in google.language.Languages) {
+        var langCode = google.language.Languages[i];
+        if (google.language.isTranslatable(langCode) && langCode != '') {
+          var newBatchParam = '&langpair=en%7C' + langCode;
+        var langFull = convertCodeToLang(langCode);
+        
+        var langVar = langFull + '<br />';  
+        langs += langVar;
+          source += newBatchParam;
+        }
+      }
+           
+      source += '&callback=' + callbackFunction;
+      newScript.src = source;
+       
+     document.getElementsByTagName('head')[0].appendChild(newScript);
+    }
+    
+	window.onload = function() {
+	document.getElementById("inputText").focus();
+	};
+    </script>
+  </head>
+  <body>
+  
+  <div id="wrap">
+    <div id="content">
+      
+		<br /><br /><br /><br /><br /><br /><br /><br />
+		<img src=anuvada1.jpg width=250px/><br /><br />
+		<input type = "text" id = "inputText" onkeypress="searchKeyPress(event);"/>&nbsp;<a href="#" onClick="anuvada(); return false;"><img id="button" src=button.jpg width=75px	/></a><br /><br />
+		<img src=anuvada2.jpg width=250px/>
+  </div>
+    <script type="text/javascript">
+        function searchKeyPress(e)
+        {
+                // look for window.event in case event isn't passed in
+                if (window.event) { e = window.event; }
+                if (e.keyCode == 13)
+                {
+                        anuvada();
+                }
+        }
+        </script>
+	<div align="center" id="results">
+	<br />
+  <table>
+      <tr>
+        <td>
+    <div align="right" id = "langss">
+      
+    </div>
+          
+        </td>
+        
+        <td>
+    <div align="left" id = "translation">
+    
+    </div>
+       
+        </td>
+      </tr>
+    </table>
+	<br />
+	
+	</div>
+	</div>
+     </body>
+</html>

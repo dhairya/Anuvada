@@ -1,0 +1,44 @@
+#wrap {
+width:750px;
+margin:0 auto;
+color:#707070;
+font-family:Verdana;
+border:none;
+font-size: 10pt;
+}
+
+#content {
+float:left;
+width:250px;
+position:fixed;	
+}
+
+#results {
+float:right;
+width:500px;
+}
+
+#langss {
+color:#a9a8a8;
+}
+
+#button {
+position:relative;
+top:9px;
+}
+
+a{
+outline: 0;
+}
+
+a:link {
+ color: #ffffff;
+}
+a:visited {
+ color: #ffffff;
+}
+a:hover {
+ color: #ffffff;
+}
+a:active {
+ color: #ffffff;
